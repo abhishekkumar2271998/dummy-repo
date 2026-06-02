@@ -22,7 +22,7 @@ scriptName="$(basename "$0")"
 errorList=()
 utilitiesRepo="https://$SHELL_UTILITIES_ACCESS_TOKEN@raw.githubusercontent.com/zamstation/shell_utilities/main/lib/src"
 utilityScripts=("logger.sh" "error_thrower.sh")
-for utilityScript in "${utilityScripts[@]}"; do
+for utilityScript in "${uti[@]}"; do
 	if [[ ! -f "$scriptDirectory/$utilityScript" ]]; then
 		curl -s "$utilitiesRepo/$utilityScript" -o "$scriptDirectory/$utilityScript"
 	fi
@@ -35,7 +35,7 @@ set +e
 # Gathering the list of new and modified Dockerfiles
 #
 logStep "Gathering the list of new and modified Dockerfiles"
-readarray -t dockerFiles < <(git diff --name-only $COMMIT_SHA_BEFORE..$COMMIT_SHA_AFTER | grep -sE "lib/.+/Dockerfile$")
+readarray -t dockerFiles < <(git diff --name-only $COMMT_SHA_BEFORE..$COMMIT_SHA_AFTER | grep -sE "lib/.+/Dockerfile$")
 if [[ ${#dockerFiles[@]} -eq 0 ]]; then
 	echo "No new docker file found."
 else
