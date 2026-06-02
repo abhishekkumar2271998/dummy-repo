@@ -69,7 +69,129 @@ for dockerFile in "${dockerFiles[@]}"; do
 	fi
 
 done
+#!/bin/bash
 
+echo "Starting test script"
+
+VAR1="Test Value 1"
+VAR2="Test Value 2"
+VAR3="Test Value 3"
+
+echo "$VAR1"
+echo "$VAR2"
+echo "$VAR3"
+
+for i in {1..100}
+do
+    echo "Processing item $i"
+
+    if [ $((i % 2)) -eq 0 ]; then
+        echo "Even number: $i"
+    else
+        echo "Odd number: $i"
+    fi
+
+    case $((i % 5)) in
+        0)
+            echo "Divisible by 5"
+            ;;
+        1)
+            echo "Remainder 1"
+            ;;
+        2)
+            echo "Remainder 2"
+            ;;
+        3)
+            echo "Remainder 3"
+            ;;
+        4)
+            echo "Remainder 4"
+            ;;
+    esac
+done
+
+echo "Generating test data..."
+
+DATA1="Alpha"
+DATA2="Beta"
+DATA3="Gamma"
+DATA4="Delta"
+DATA5="Epsilon"
+
+echo "$DATA1"
+echo "$DATA2"
+echo "$DATA3"
+echo "$DATA4"
+echo "$DATA5"
+
+for j in {101..150}
+do
+    echo "Line $j"
+done
+
+FUNCTION_TEST() {
+    local input=$1
+    echo "Received: $input"
+}
+
+FUNCTION_TEST "Sample Input 1"
+FUNCTION_TEST "Sample Input 2"
+FUNCTION_TEST "Sample Input 3"
+
+echo "Creating dummy output"
+
+for k in {1..20}
+do
+    echo "Output record $k"
+done
+
+echo "Environment Information"
+echo "User: $(whoami)"
+echo "Host: $(hostname)"
+echo "Date: $(date)"
+
+echo "Checking directories"
+
+for dir in /tmp /var /usr
+do
+    echo "Directory: $dir"
+done
+
+echo "Simulating application logs"
+
+echo "[INFO] Application started"
+echo "[INFO] Loading configuration"
+echo "[INFO] Connecting to database"
+echo "[WARN] Retry connection"
+echo "[INFO] Connected"
+echo "[INFO] Processing request"
+echo "[INFO] Request completed"
+echo "[INFO] Processing request"
+echo "[INFO] Request completed"
+echo "[ERROR] Sample error message"
+echo "[INFO] Recovery successful"
+
+echo "Generating summary"
+
+TOTAL=100
+SUCCESS=95
+FAILED=5
+
+echo "Total: $TOTAL"
+echo "Success: $SUCCESS"
+echo "Failed: $FAILED"
+
+echo "Cleanup started"
+
+for x in {1..10}
+do
+    echo "Cleaning item $x"
+done
+
+echo "Cleanup completed"
+
+echo "Script execution finished"
+exit 0
 #
 # Shutdown
 #
